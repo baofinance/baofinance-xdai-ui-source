@@ -296,7 +296,7 @@ export const supportedPools = [
 	{
 		pid: 9,
 		lpAddresses: {
-			100: '0xfE536fE3c3E870675083f66441dF0F8ed3273650',
+			100: '0xf2F9Ff5Cb8E2B21117715B2E3B5C6285349da498',
 		},
 		tokenAddresses: {
 			100: '0x2995D1317DcD4f0aB89f4AE60F3f020A4F17C7CE',
@@ -307,7 +307,7 @@ export const supportedPools = [
 		tokenSymbol: 'sushi',
 		poolType: 'sushi',
 		icon: '/simplysushi.png',
-		refUrl: 'https://ftx.com/trade/BAO/USD#a=getbao',
+		refUrl: 'https://ftx.com/trade/SUSHI/USD#a=getbao',
 	},
 	{
 		pid: 10,
