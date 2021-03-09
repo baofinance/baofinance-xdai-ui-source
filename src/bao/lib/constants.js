@@ -1006,6 +1006,21 @@ export const supportedPools = [
 		refUrl: 'https://virgox.com/login/register?code=gxkb7dva',
 	},
 	{
+		pid: 56,
+		lpAddresses: {
+			100: '0x93888156eCd6E1D8644285A057dde37fdBd620D1',
+		},
+		tokenAddresses: {
+			100: '0xBDE011911128F6bD4ABb1d18F39fdc3614Ca2cfe',
+		},
+		tokenDecimals: 18,
+		name: 'AXS Ahi Tuna',
+		symbol: 'AXS-xDAI BAOLP',
+		tokenSymbol: 'AXS',
+		icon: '/salmon.png',
+		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
+	},
+	{
 		pid: 57,
 		lpAddresses: {
 			100: '0x3CFd76aF96be1491dc58c76458791763D354f275',
@@ -1343,6 +1358,21 @@ export const supportedPools = [
 		refUrl: 'https://www.digifinex.com/en-ww/from/?channelCode=ljaUPp',
 	},
 	{
+		pid: 79,
+		lpAddresses: {
+			100: '0xb8f9d3F58c4243bE33DB8246877Bbf89614869d4',
+		},
+		tokenAddresses: {
+			100: '0x4bE85ACC1cd711F403dC7BdE9e6caDfC5A94744b',
+		},
+		tokenDecimals: 18,
+		name: 'RARI Riceballs',
+		symbol: 'RARI-xDAI BAOLP',
+		tokenSymbol: 'RARI',
+		icon: '/rice-ball-with-seaweed.png',
+		refUrl: 'https://www.mxc.ai/auth/signup?inviteCode=13z4G',
+	},
+	{
 		pid: 80,
 		lpAddresses: {
 			100: '0xD73A386b836D02e44cf9F9CC95f029d8B803C226',
@@ -1674,5 +1704,37 @@ export const supportedPools = [
 		tokenSymbol: 'AGVE',
 		icon: '/nectar.png',
 		refUrl: '#',
+	},
+	{
+		pid: 102,
+		lpAddresses: {
+			100: '0x4b2c191198ACd5F1C941fa1ba0C870b38470F331',
+		},
+		tokenAddresses: {
+			100: '0xbf65bfcb5da067446CeE6A706ba3Fe2fB1a9fdFd',
+		},
+		tokenDecimals: 18,
+		name: 'YFI Youtiao',
+		symbol: 'YFI-ETH SLP',
+		tokenSymbol: 'YFI',
+		poolType: 'sushi',
+		icon: '/churros.png',
+		refUrl: 'https://phemex.com/bonus?group=737&referralCode=BVJCQ',
+	},
+	{
+		pid: 103,
+		lpAddresses: {
+			100: '0x43BC76493dEa7c82116A38e9C012B9a03127132c',
+		},
+		tokenAddresses: {
+			100: '0x4537e328Bf7e4eFA29D05CAeA260D7fE26af9D74',
+		},
+		tokenDecimals: 18,
+		name: 'UNI Unagi',
+		symbol: 'UNI-ETH SLP',
+		tokenSymbol: 'UNI',
+		poolType: 'sushi',
+		icon: '/unagi.png',
+		refUrl: 'https://ftx.com/trade/UNI/USD#a=createtrade',
 	},
 ]
