@@ -448,8 +448,7 @@ export const supportedPools = [
 		symbol: 'wETH-xDAI BAOLP',
 		tokenSymbol: 'wETH',
 		icon: '/eth.png',
-		refUrl:
-			'https://ftx.com/trade/ETH/USD#a=getbao',
+		refUrl:'https://ftx.com/trade/ETH/USD#a=getbao',
 	},
 	{
 		pid: 19,
