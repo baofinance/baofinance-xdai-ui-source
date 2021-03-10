@@ -1756,3 +1756,4 @@ export const supportedPools = [
 		refUrl: 'https://ftx.com/trade/UNI/USD#a=createtrade',
 	},
 ]
+
