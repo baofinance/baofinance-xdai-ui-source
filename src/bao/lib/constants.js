@@ -353,8 +353,7 @@ export const supportedPools = [
 		symbol: 'RUNE-xDAI BAOLP',
 		tokenSymbol: 'RUNE',
 		icon: '/ramennoodle.png',
-		refUrl:
-			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/RUNE',
+		refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/RUNE',
 	},
 	{
 		pid: 13,
@@ -384,8 +383,7 @@ export const supportedPools = [
 		symbol: 'NFTX-xDAI BAOLP',
 		tokenSymbol: 'NFTX',
 		icon: '/nuggets.png',
-		refUrl:
-			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/NFTX',
+		refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/NFTX',
 	},
 	{
 		pid: 15,
@@ -400,8 +398,7 @@ export const supportedPools = [
 		symbol: 'stETH-xDAI BAOLP',
 		tokenSymbol: 'stETH',
 		icon: '/eth.png',
-		refUrl:
-			'https://app.uniswap.org/#/swap?outputCurrency=0xae7ab96520de3a18e5e111b5eaab095312d7fe84',
+		refUrl: 'https://app.uniswap.org/#/swap?outputCurrency=0xae7ab96520de3a18e5e111b5eaab095312d7fe84',
 	},
 	{
 		pid: 16,
@@ -416,8 +413,7 @@ export const supportedPools = [
 		symbol: 'stETH-wETH BAOLP',
 		tokenSymbol: 'stETH',
 		icon: '/eth.png',
-		refUrl:
-			'https://app.uniswap.org/#/swap?outputCurrency=0xae7ab96520de3a18e5e111b5eaab095312d7fe84',
+		refUrl: 'https://app.uniswap.org/#/swap?outputCurrency=0xae7ab96520de3a18e5e111b5eaab095312d7fe84',
 	},
 	{
 		pid: 17,
@@ -432,8 +428,7 @@ export const supportedPools = [
 		symbol: 'TVK-xDAI BAOLP',
 		tokenSymbol: 'TVK',
 		icon: '/picnic.png',
-		refUrl:
-			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/TVK',
+		refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/TVK',
 	},
 	{
 		pid: 18,
@@ -448,7 +443,7 @@ export const supportedPools = [
 		symbol: 'wETH-xDAI BAOLP',
 		tokenSymbol: 'wETH',
 		icon: '/eth.png',
-		refUrl:'https://ftx.com/trade/ETH/USD#a=getbao',
+		refUrl: 'https://ftx.com/trade/ETH/USD#a=getbao',
 	},
 	{
 		pid: 19,
