@@ -6,15 +6,15 @@ const Nav: React.FC = () => {
 		<StyledNav>
 			<StyledLink
 				target="_blank"
-				href="https://etherscan.io/address/0xBD530a1c060DC600b951f16dc656E4EA451d1A2D"
+				href="https://blockscout.com/xdai/mainnet/address/0xf712a82DD8e2Ac923299193e9d6dAEda2d5a32fd"
 			>
 				BaoChef Contract
 			</StyledLink>
 			<StyledLink
 				target="_blank"
-				href="https://app.uniswap.org/#/swap?inputCurrency=0x374cb8c27130e2c9e04f44303f3c8351b9de61c1&outputCurrency=ETH"
+				href="https://alpha.baoswap.xyz/#/swap?inputCurrency=0x82dFe19164729949fD66Da1a37BC70dD6c4746ce&outputCurrency=XDAI"
 			>
-				Uniswap BAO-ETH
+				BaoSwap BAO-XDAI
 			</StyledLink>
 			<StyledLink
 				target="_blank"
