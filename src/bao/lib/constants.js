@@ -838,7 +838,7 @@ export const supportedPools = [
 		name: 'Mana Miantiao',
 		symbol: 'MANA-xDAI BAOLP',
 		tokenSymbol: 'MANA',
-		icon: '/miantiao.png',
+		icon: '/noodles.png',
 		refUrl: 'https://virgox.com/login/register?code=gxkb7dva',
 	},
 	{
@@ -850,7 +850,7 @@ export const supportedPools = [
 			100: '0x7122d7661c4564b7C6Cd4878B06766489a6028A2',
 		},
 		tokenDecimals: 18,
-		name: 'Matic Mandarin Fsh',
+		name: 'Matic Mandarin Fish',
 		symbol: 'MATIC-xDAI BAOLP',
 		tokenSymbol: 'MATIC',
 		icon: '/fish.png',
