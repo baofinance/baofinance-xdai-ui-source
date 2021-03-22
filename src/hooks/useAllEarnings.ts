@@ -8,6 +8,8 @@ import { getEarned, getMasterChefContract, getFarms } from '../bao/utils'
 import useBao from './useBao'
 import useBlock from './useBlock'
 
+import { Farm } from '../contexts/Farms'
+
 const useAllEarnings = () => {
   const [balances, setBalance] = useState([] as Array<BigNumber>)
   const { account }: { account: string; ethereum: provider } = useWallet()
@@ -17,11 +19,13 @@ const useAllEarnings = () => {
   const block = useBlock()
 
   const fetchAllBalances = useCallback(async () => {
-    const balances: Array<BigNumber> = await Promise.all(
-      farms.map(({ pid }: { pid: number }) =>
-        getEarned(masterChefContract, pid, account),
-      ),
-    )
+    const balances: Array<BigNumber> = []
+
+    farms.forEach(async (farm: Farm, i: number) => {
+      const balance = await getEarned(masterChefContract, farm.pid, account);
+      balances.push(balance);
+    })
+
     setBalance(balances)
   }, [account, masterChefContract, bao])
 
