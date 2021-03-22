@@ -1881,7 +1881,8 @@ export const supportedPools = [
 		tokenSymbol: 'L2',
 		poolType: 'sushi',
 		icon: '/fortune-cookie.png',
-		refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/L2/ETH',
+		refUrl:
+			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/L2/ETH',
 	},
 	{
 		pid: 115,
@@ -2028,7 +2029,7 @@ export const supportedPools = [
 		tokenSymbol: 'QSP',
 		poolType: 'sushi',
 		icon: '/eggs.png',
-		refUrl:	'https://www.huobi.com/en-us/topic/invited/?invite_code=pfr33',
+		refUrl: 'https://www.huobi.com/en-us/topic/invited/?invite_code=pfr33',
 	},
 	{
 		pid: 124,
@@ -2045,7 +2046,7 @@ export const supportedPools = [
 		poolType: 'sushi',
 		icon: '/moon-cakers.png',
 		refUrl:
-		'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/1INCH',
+			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/1INCH',
 	},
 	{
 		pid: 125,
@@ -2061,7 +2062,7 @@ export const supportedPools = [
 		tokenSymbol: 'AKRO',
 		poolType: 'sushi',
 		icon: '/cookie.png',
-		refUrl:	'https://ftx.com/trade/AKRO/USD#a=createtrade',
+		refUrl: 'https://ftx.com/trade/AKRO/USD#a=createtrade',
 	},
 	{
 		pid: 126,
@@ -2077,7 +2078,7 @@ export const supportedPools = [
 		tokenSymbol: 'cUNI',
 		poolType: 'sushi',
 		icon: '/cockles.png',
-		refUrl:	'https://app.compound.finance/',
+		refUrl: 'https://app.compound.finance/',
 	},
 	{
 		pid: 127,
@@ -2093,7 +2094,7 @@ export const supportedPools = [
 		tokenSymbol: 'DPI',
 		poolType: 'sushi',
 		icon: '/tempura.png',
-		refUrl:	'https://bilaxy.com/user/register?intro=1428882',
+		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
 	},
 	{
 		pid: 128,
@@ -2109,7 +2110,7 @@ export const supportedPools = [
 		tokenSymbol: 'BAT',
 		poolType: 'sushi',
 		icon: '/beef.png',
-		refUrl:	'https://www.decoin.io/?ref=56336',
+		refUrl: 'https://www.decoin.io/?ref=56336',
 	},
 	{
 		pid: 129,
@@ -2125,7 +2126,7 @@ export const supportedPools = [
 		tokenSymbol: 'aETH',
 		poolType: 'sushi',
 		icon: '/cocktail.png',
-		refUrl:	'https://app.aave.com/?referral=108',
+		refUrl: 'https://app.aave.com/?referral=108',
 	},
 	{
 		pid: 130,
@@ -2141,7 +2142,7 @@ export const supportedPools = [
 		tokenSymbol: 'KP3R',
 		poolType: 'sushi',
 		icon: '/kebab.png',
-		refUrl:	'https://www.mxc.ai/auth/signup?inviteCode=13z4G',
+		refUrl: 'https://www.mxc.ai/auth/signup?inviteCode=13z4G',
 	},
 	{
 		pid: 131,
@@ -2157,7 +2158,7 @@ export const supportedPools = [
 		tokenSymbol: 'MPH',
 		poolType: 'sushi',
 		icon: '/chili.png',
-		refUrl:	'https://bilaxy.com/user/register?intro=1428882',
+		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
 	},
 	{
 		pid: 132,
@@ -2173,7 +2174,7 @@ export const supportedPools = [
 		tokenSymbol: 'YAX',
 		poolType: 'sushi',
 		icon: '/tuna.png',
-		refUrl:	'https://bilaxy.com/user/register?intro=1428882',
+		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
 	},
 	{
 		pid: 133,
@@ -2190,7 +2191,7 @@ export const supportedPools = [
 		poolType: 'sushi',
 		icon: '/eth.png',
 		refUrl:
-		'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/sETH',
+			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/sETH',
 	},
 	{
 		pid: 134,
@@ -2206,7 +2207,7 @@ export const supportedPools = [
 		tokenSymbol: 'ALPHA',
 		poolType: 'sushi',
 		icon: '/pie.png',
-		refUrl:	'https://www.hotbit.io/register?ref=669143',
+		refUrl: 'https://www.hotbit.io/register?ref=669143',
 	},
 	{
 		pid: 135,
@@ -2222,7 +2223,7 @@ export const supportedPools = [
 		tokenSymbol: 'MATIC',
 		poolType: 'sushi',
 		icon: '/fish.png',
-		refUrl:	'https://ftx.com/trade/MATIC-PERP#a=createtrade',
+		refUrl: 'https://ftx.com/trade/MATIC-PERP#a=createtrade',
 	},
 	{
 		pid: 136,
@@ -2238,7 +2239,7 @@ export const supportedPools = [
 		tokenSymbol: 'MKR',
 		poolType: 'sushi',
 		icon: '/moon-cake.png',
-		refUrl:	'https://ftx.com/trade/MKR-PERP#a=createtrade',
+		refUrl: 'https://ftx.com/trade/MKR-PERP#a=createtrade',
 	},
 	{
 		pid: 137,
@@ -2254,7 +2255,8 @@ export const supportedPools = [
 		tokenSymbol: 'DAI',
 		poolType: 'sushi',
 		icon: '/egg-tart.png',
-		refUrl:	'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
+		refUrl:
+			'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
 	},
 	{
 		pid: 138,
@@ -2270,7 +2272,7 @@ export const supportedPools = [
 		tokenSymbol: 'CRV',
 		poolType: 'sushi',
 		icon: '/custard.png',
-		refUrl:	'https://www.okex.com/join/3/1914410',
+		refUrl: 'https://www.okex.com/join/3/1914410',
 	},
 	{
 		pid: 139,
@@ -2286,7 +2288,7 @@ export const supportedPools = [
 		tokenSymbol: 'AAVE',
 		poolType: 'sushi',
 		icon: '/appetizer.png',
-		refUrl:	'https://app.aave.com/?referral=108',
+		refUrl: 'https://app.aave.com/?referral=108',
 	},
 	{
 		pid: 140,
@@ -2302,7 +2304,7 @@ export const supportedPools = [
 		tokenSymbol: 'SNX',
 		poolType: 'sushi',
 		icon: '/snack.png',
-		refUrl:	'https://ftx.com/trade/SNX/USD#a=createtrade',
+		refUrl: 'https://ftx.com/trade/SNX/USD#a=createtrade',
 	},
 	{
 		pid: 141,
@@ -2318,7 +2320,7 @@ export const supportedPools = [
 		tokenSymbol: 'BAL',
 		poolType: 'sushi',
 		icon: '/bento.png',
-		refUrl:	'https://ftx.com/trade/BAL-PERP#a=createtrade',
+		refUrl: 'https://ftx.com/trade/BAL-PERP#a=createtrade',
 	},
 	{
 		pid: 142,
@@ -2333,6 +2335,6 @@ export const supportedPools = [
 		symbol: 'NEXO-XDAI BAOLP',
 		tokenSymbol: 'NEXO',
 		icon: '/noodles.png',
-		refUrl:	'https://www.huobi.com/en-us/topic/invited/?invite_code=pfr33',
+		refUrl: 'https://www.huobi.com/en-us/topic/invited/?invite_code=pfr33',
 	},
 ]
