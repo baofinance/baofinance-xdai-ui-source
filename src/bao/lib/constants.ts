@@ -1,4 +1,5 @@
 import BigNumber from 'bignumber.js/bignumber'
+import { PoolType } from '../../contexts/Farms/types'
 
 export const SUBTRACT_GAS_LIMIT = 100000
 
@@ -8,21 +9,22 @@ const ONE_DAY_IN_SECONDS = ONE_HOUR_IN_SECONDS.times(24)
 const ONE_YEAR_IN_SECONDS = ONE_DAY_IN_SECONDS.times(365)
 
 export const INTEGERS = {
-	ONE_MINUTE_IN_SECONDS,
-	ONE_HOUR_IN_SECONDS,
-	ONE_DAY_IN_SECONDS,
-	ONE_YEAR_IN_SECONDS,
-	ZERO: new BigNumber(0),
-	ONE: new BigNumber(1),
-	ONES_31: new BigNumber('4294967295'), // 2**32-1
-	ONES_127: new BigNumber('340282366920938463463374607431768211455'), // 2**128-1
-	ONES_255: new BigNumber(
-		'115792089237316195423570985008687907853269984665640564039457584007913129639935',
-	), // 2**256-1
-	INTEREST_RATE_BASE: new BigNumber('1e18'),
+  ONE_MINUTE_IN_SECONDS,
+  ONE_HOUR_IN_SECONDS,
+  ONE_DAY_IN_SECONDS,
+  ONE_YEAR_IN_SECONDS,
+  ZERO: new BigNumber(0),
+  ONE: new BigNumber(1),
+  ONES_31: new BigNumber('4294967295'), // 2**32-1
+  ONES_127: new BigNumber('340282366920938463463374607431768211455'), // 2**128-1
+  ONES_255: new BigNumber(
+    '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+  ), // 2**256-1
+  INTEREST_RATE_BASE: new BigNumber('1e18'),
 }
 
 export const addressMap = {
+
 	uniswapFactory: '0x45DE240fbE2077dd3e711299538A09854FAE9c9b',
 	uniswapFactoryV2: '0x45DE240fbE2077dd3e711299538A09854FAE9c9b',
 	BAO: '0x82dFe19164729949fD66Da1a37BC70dD6c4746ce',
@@ -116,6 +118,14 @@ export const contractAddresses = {
 		100: '0xe0d0b1DBbCF3dd5CAc67edaf9243863Fd70745DA',
 		4: '0xE5AFBb49BeB7552a1167df6aAED70d88279787e8',
 	},
+	baocx: {
+		100: '0x82dFe19164729949fD66Da1a37BC70dD6c4746ce',
+		4: '0xE5AFBb49BeB7552a1167df6aAED70d88279787e8',
+	},
+	cxswap: {
+		100: '0x825b6a1548F8F019664b6Ae577b44bFb728435B0',
+		4: '0xE5AFBb49BeB7552a1167df6aAED70d88279787e8',
+	},
 	masterChef: {
 		100: '0xf712a82DD8e2Ac923299193e9d6dAEda2d5a32fd',
 		4: '0xdA6CFdB12112309E4587D4a747a55E2970Eda4f3',
@@ -152,8 +162,25 @@ BAO Address on mainnet for reference
 12 SUSHI 0xce84867c3c02b05dc570d0135103d3fb9cc19433
 */
 
-export const supportedPools = [
-	{
+export interface SupportedPool {
+	pid: number
+	lpAddresses: {
+	  100: string
+	}
+	tokenAddresses: {
+	  100: string
+	}
+	tokenDecimals: number
+	name: string
+	symbol: string
+	tokenSymbol: string
+	icon: string
+	refUrl: string
+	poolType?: PoolType
+  }
+  
+  export const supportedPools: SupportedPool[] = [
+	  {
 		pid: 0,
 		lpAddresses: {
 			100: '0x82820a99c431d0Bb7cA775Fa7247d1AC481f2E56',
@@ -195,7 +222,7 @@ export const supportedPools = [
 		name: 'BAO PARTYv2',
 		symbol: 'BAO-ETH SLP',
 		tokenSymbol: 'BAO',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/bao.png',
 		refUrl: 'https://ftx.com/trade/BAO/USD#a=getbao',
 	},
@@ -226,7 +253,7 @@ export const supportedPools = [
 		name: 'BAO USDC',
 		symbol: 'BAO-USDC SushiLP',
 		tokenSymbol: 'BAO',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/bao.png',
 		refUrl: 'https://ftx.com/trade/BAO/USD#a=getbao',
 	},
@@ -242,7 +269,7 @@ export const supportedPools = [
 		name: 'BAO YFI',
 		symbol: 'BAO-YFI SushiLP',
 		tokenSymbol: 'BAO',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/bao.png',
 		refUrl: 'https://ftx.com/trade/BAO/USD#a=getbao',
 	},
@@ -258,7 +285,7 @@ export const supportedPools = [
 		name: 'BAO Sushi',
 		symbol: 'BAO-Sushi SushiLP',
 		tokenSymbol: 'BAO',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/bao.png',
 		refUrl: 'https://ftx.com/trade/BAO/USD#a=getbao',
 	},
@@ -274,7 +301,7 @@ export const supportedPools = [
 		name: 'BAO DAI',
 		symbol: 'BAO-DAI SushiLP',
 		tokenSymbol: 'BAO',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/bao.png',
 		refUrl: 'https://ftx.com/trade/BAO/USD#a=getbao',
 	},
@@ -290,7 +317,7 @@ export const supportedPools = [
 		name: 'Sushi Eth',
 		symbol: 'SUSHI-ETH SUSHILP',
 		tokenSymbol: 'SUSHI',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/simplysushi.png',
 		refUrl: 'https://ftx.com/trade/SUSHI/USD#a=createtrade',
 	},
@@ -306,7 +333,7 @@ export const supportedPools = [
 		name: 'Sushi xSushi',
 		symbol: 'SUSHI-xSUSHI SushiLP',
 		tokenSymbol: 'sushi',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/simplysushi.png',
 		refUrl: 'https://ftx.com/trade/BAO/USD#a=getbao',
 	},
@@ -322,7 +349,7 @@ export const supportedPools = [
 		name: 'xSushi ETH',
 		symbol: 'xSUSHI-ETH SushiLP',
 		tokenSymbol: 'sushi',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/simplysushi.png',
 		refUrl: 'https://ftx.com/trade/SUSHI/USD#a=getbao',
 	},
@@ -1064,7 +1091,7 @@ export const supportedPools = [
 		name: 'Stake Soy Sauce',
 		symbol: 'Stake-ETH SLP',
 		tokenSymbol: 'STAKE',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/soy.png',
 		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
 	},
@@ -1080,7 +1107,7 @@ export const supportedPools = [
 		name: 'BZRX Beef Tendon',
 		symbol: 'BZRX-ETH SLP',
 		tokenSymbol: 'BZRX',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/ham.png',
 		refUrl: 'https://www.mxc.ai/auth/signup?inviteCode=13z4G',
 	},
@@ -1751,7 +1778,7 @@ export const supportedPools = [
 		name: 'YFI Youtiao',
 		symbol: 'YFI-ETH SUSHILP',
 		tokenSymbol: 'YFI',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/churros.png',
 		refUrl: 'https://phemex.com/bonus?group=737&referralCode=BVJCQ',
 	},
@@ -1767,7 +1794,7 @@ export const supportedPools = [
 		name: 'Uni Unagi',
 		symbol: 'UNI-ETH SUSHILP',
 		tokenSymbol: 'UNI',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/unagi.png',
 		refUrl: 'https://ftx.com/trade/UNI/USD#a=createtrade',
 	},
@@ -1783,7 +1810,7 @@ export const supportedPools = [
 		name: 'USDC Crunch',
 		symbol: 'USDC-ETH SUSHILP',
 		tokenSymbol: 'USDC',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/cereals.png',
 		refUrl: 'https://www.binance.com/en/register?ref=NFBFR4AC',
 	},
@@ -1799,7 +1826,7 @@ export const supportedPools = [
 		name: 'TUSD Tea Egg',
 		symbol: 'TUSD-ETH SUSHILP',
 		tokenSymbol: 'TUSD',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/boiled-egg.png',
 		refUrl: 'https://www.digifinex.com/en-ww/from/v7D3UM?channelCode=ljaUPp',
 	},
@@ -1815,7 +1842,7 @@ export const supportedPools = [
 		name: 'Rook Rice Noodle Roll',
 		symbol: 'ROOK-ETH SUSHILP',
 		tokenSymbol: 'ROOK',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/roll-fish.png',
 		refUrl: 'https://www.hotbit.io/register?ref=669143',
 	},
@@ -1831,7 +1858,7 @@ export const supportedPools = [
 		name: 'GRT Gummies',
 		symbol: 'GRT-ETH SUSHILP',
 		tokenSymbol: 'GRT',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/gummy-bear.png',
 		refUrl: 'https://ftx.com/trade/GRT/USD#a=getbao',
 	},
@@ -1847,7 +1874,7 @@ export const supportedPools = [
 		name: 'wBTC Wraps',
 		symbol: 'wBTC-ETH SUSHILP',
 		tokenSymbol: 'wBTC',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/wrap.png',
 		refUrl: 'https://www.binance.com/en/register?ref=NFBFR4AC',
 	},
@@ -1863,7 +1890,7 @@ export const supportedPools = [
 		name: 'Rari Riceballs',
 		symbol: 'RARI-ETH SUSHILP',
 		tokenSymbol: 'RARI',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/rice-ball-with-seaweed.png',
 		refUrl: 'https://www.mxc.ai/auth/signup?inviteCode=13z4G',
 	},
@@ -1879,7 +1906,7 @@ export const supportedPools = [
 		name: 'Leverj Gluon Lucky Cookie',
 		symbol: 'L2-ETH SUSHILP',
 		tokenSymbol: 'L2',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/fortune-cookie.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/L2/ETH',
@@ -1896,7 +1923,7 @@ export const supportedPools = [
 		name: 'Link Lunch',
 		symbol: 'LINK-ETH SUSHILP',
 		tokenSymbol: 'LINK',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/sandwich.png',
 		refUrl: 'https://ftx.com/trade/LINK/USD#a=getbao',
 	},
@@ -1912,7 +1939,7 @@ export const supportedPools = [
 		name: 'Reserve Ragout',
 		symbol: 'RSR-ETH SUSHILP',
 		tokenSymbol: 'RSR',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/stew.png',
 		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
 	},
@@ -1928,7 +1955,7 @@ export const supportedPools = [
 		name: 'AXS Ahi Tuna',
 		symbol: 'AXS-ETH SUSHILP',
 		tokenSymbol: 'AXS',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/salmon.png',
 		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
 	},
@@ -1944,7 +1971,7 @@ export const supportedPools = [
 		name: 'FTX Fried Tofu (Vege!)',
 		symbol: 'FTT-ETH SUSHILP',
 		tokenSymbol: 'FTT',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/tofu.png',
 		refUrl: 'https://ftx.com/trade/FTT/USD#a=createtrade',
 	},
@@ -1960,7 +1987,7 @@ export const supportedPools = [
 		name: 'SRM Spring Rolls (Vegan)',
 		symbol: 'SRM-ETH SUSHILP',
 		tokenSymbol: 'SRM',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/spring-rolls.png',
 		refUrl: 'https://ftx.com/trade/SRM/USD#a=createtrade',
 	},
@@ -1976,7 +2003,7 @@ export const supportedPools = [
 		name: 'Rune Ramen',
 		symbol: 'RUNE-ETH SUSHILP',
 		tokenSymbol: 'RUNE',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/ramennoodle.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/RUNE',
@@ -1993,7 +2020,7 @@ export const supportedPools = [
 		name: 'yVault Youtiao',
 		symbol: 'yUSD-ETH SUSHILP',
 		tokenSymbol: 'yUSD',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/churros.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/yyCurve',
@@ -2010,7 +2037,7 @@ export const supportedPools = [
 		name: 'NFTX Nuggets',
 		symbol: 'NFTX-ETH SUSHILP',
 		tokenSymbol: 'NFTX',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/nuggets.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/NFTX',
@@ -2027,7 +2054,7 @@ export const supportedPools = [
 		name: 'QSP Quail Eggs',
 		symbol: 'QSP-ETH SUSHILP',
 		tokenSymbol: 'QSP',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/eggs.png',
 		refUrl: 'https://www.huobi.com/en-us/topic/invited/?invite_code=pfr33',
 	},
@@ -2043,7 +2070,7 @@ export const supportedPools = [
 		name: '1INCH Nibbles',
 		symbol: '1INCH-ETH SUSHILP',
 		tokenSymbol: '1INCH',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/moon-cakers.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/1INCH',
@@ -2060,7 +2087,7 @@ export const supportedPools = [
 		name: 'AKRO Amygdalota',
 		symbol: 'AKRO-ETH SUSHILP',
 		tokenSymbol: 'AKRO',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/cookie.png',
 		refUrl: 'https://ftx.com/trade/AKRO/USD#a=createtrade',
 	},
@@ -2076,7 +2103,7 @@ export const supportedPools = [
 		name: 'cUNI Clams',
 		symbol: 'cUNI-ETH SUSHILP',
 		tokenSymbol: 'cUNI',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/cockles.png',
 		refUrl: 'https://app.compound.finance/',
 	},
@@ -2092,7 +2119,7 @@ export const supportedPools = [
 		name: 'DPI Deep Fried Shrimp',
 		symbol: 'DPI-ETH SUSHILP',
 		tokenSymbol: 'DPI',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/tempura.png',
 		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
 	},
@@ -2108,7 +2135,7 @@ export const supportedPools = [
 		name: 'Brave Braised Pork',
 		symbol: 'BAT-ETH SUSHILP',
 		tokenSymbol: 'BAT',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/beef.png',
 		refUrl: 'https://www.decoin.io/?ref=56336',
 	},
@@ -2124,7 +2151,7 @@ export const supportedPools = [
 		name: 'Aave ETH Aperitif',
 		symbol: 'aETH-ETH SUSHILP',
 		tokenSymbol: 'aETH',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/cocktail.png',
 		refUrl: 'https://app.aave.com/?referral=108',
 	},
@@ -2140,7 +2167,7 @@ export const supportedPools = [
 		name: 'KP3R Kebab',
 		symbol: 'KP3R-ETH SUSHILP',
 		tokenSymbol: 'KP3R',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/kebab.png',
 		refUrl: 'https://www.mxc.ai/auth/signup?inviteCode=13z4G',
 	},
@@ -2156,7 +2183,7 @@ export const supportedPools = [
 		name: '88MPH Chilis',
 		symbol: 'MPH-ETH SUSHILP',
 		tokenSymbol: 'MPH',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/chili.png',
 		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
 	},
@@ -2172,7 +2199,7 @@ export const supportedPools = [
 		name: 'YAX Yellowfin',
 		symbol: 'YAX-ETH SUSHILP',
 		tokenSymbol: 'YAX',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/tuna.png',
 		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
 	},
@@ -2188,7 +2215,7 @@ export const supportedPools = [
 		name: 'sETH/ETH',
 		symbol: 'sETH-ETH SUSHILP',
 		tokenSymbol: 'sETH',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/eth.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/sETH',
@@ -2205,7 +2232,7 @@ export const supportedPools = [
 		name: 'Alpha Apple Pie',
 		symbol: 'ALPHA-ETH SUSHILP',
 		tokenSymbol: 'ALPHA',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/pie.png',
 		refUrl: 'https://www.hotbit.io/register?ref=669143',
 	},
@@ -2221,7 +2248,7 @@ export const supportedPools = [
 		name: 'Matic Mandarin Fish',
 		symbol: 'MATIC-ETH SUSHILP',
 		tokenSymbol: 'MATIC',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/fish.png',
 		refUrl: 'https://ftx.com/trade/MATIC-PERP#a=createtrade',
 	},
@@ -2237,7 +2264,7 @@ export const supportedPools = [
 		name: 'Maker Mooncake',
 		symbol: 'MKR-ETH SUSHILP',
 		tokenSymbol: 'MKR',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/moon-cake.png',
 		refUrl: 'https://ftx.com/trade/MKR-PERP#a=createtrade',
 	},
@@ -2253,7 +2280,7 @@ export const supportedPools = [
 		name: 'Dai Dan Tat',
 		symbol: 'DAI-ETH SUSHILP',
 		tokenSymbol: 'DAI',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/egg-tart.png',
 		refUrl:
 			'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
@@ -2270,7 +2297,7 @@ export const supportedPools = [
 		name: 'Curve Custard',
 		symbol: 'CRV-ETH SUSHILP',
 		tokenSymbol: 'CRV',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/custard.png',
 		refUrl: 'https://www.okex.com/join/3/1914410',
 	},
@@ -2286,7 +2313,7 @@ export const supportedPools = [
 		name: 'Aave Appetizer',
 		symbol: 'AAVE-ETH SUSHILP',
 		tokenSymbol: 'AAVE',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/appetizer.png',
 		refUrl: 'https://app.aave.com/?referral=108',
 	},
@@ -2302,7 +2329,7 @@ export const supportedPools = [
 		name: 'Synthetix Snacks',
 		symbol: 'SNX-ETH SUSHILP',
 		tokenSymbol: 'SNX',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/snack.png',
 		refUrl: 'https://ftx.com/trade/SNX/USD#a=createtrade',
 	},
@@ -2318,7 +2345,7 @@ export const supportedPools = [
 		name: 'Balancer Bento',
 		symbol: 'BAL-ETH SUSHILP',
 		tokenSymbol: 'BAL',
-		poolType: 'sushi',
+		poolType: PoolType.SUSHI,
 		icon: '/bento.png',
 		refUrl: 'https://ftx.com/trade/BAL-PERP#a=createtrade',
 	},

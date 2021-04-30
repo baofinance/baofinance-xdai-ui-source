@@ -25,6 +25,13 @@ const Nav: React.FC = () => {
 			>
 				Menu
 			</StyledLink>
+			<StyledLink
+				exact
+				activeClassName="active"
+				to={{ pathname: '/CxSwap', search: '?ref=' + refer }}
+			>
+				CxSwap
+			</StyledLink>
 			<StyledAbsoluteLink
 				href="https://snapshot.page/#/baovotes.eth"
 				target="_blank"
