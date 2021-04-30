@@ -12,7 +12,7 @@ import { Contract } from 'web3-eth-contract'
 import useModal from '../../../hooks/useModal'
 import WithdrawModal from './WithdrawModal'
 import BigNumber from 'bignumber.js'
-import { getCxSwapContract } from '../../../bao/utils'
+import { getBaocxContract } from '../../../bao/utils'
 import useDeposit from '../../../hooks/useDepositCx'
 import useBao from '../../../hooks/useBao'
 import DepositModal from './DepositModal'
@@ -21,14 +21,14 @@ import useWithdraw from '../../../hooks/useWithdrawCx'
 import useAllowanceCxSwap from '../../../hooks/useAllowanceCx'
 import useApproveCxSwap from '../../../hooks/useApproveCx'
 
-interface SwapCxSwapProps {
+interface SwapCxProps {
 	withdrawableBalance: BigNumber
 }
 
-const SwapCxSwap: React.FC<SwapCxSwapProps> = ({ withdrawableBalance }) => {
+const SwapCxSwap: React.FC<SwapCxProps> = ({ withdrawableBalance }) => {
 	const bao = useBao()
 
-	const address = useMemo(() => getCxSwapContract(bao)?.options.address, [
+	const address = useMemo(() => getBaocxContract(bao)?.options.address, [
 		bao,
 	])
 	const tokenName = 'BAO'
@@ -37,7 +37,7 @@ const SwapCxSwap: React.FC<SwapCxSwapProps> = ({ withdrawableBalance }) => {
 	const walletBalance = useTokenBalance(address)
 
 	const [requestedApproval, setRequestedApproval] = useState(false)
-	const contract = useMemo(() => getCxSwapContract(bao), [bao])
+	const contract = useMemo(() => getBaocxContract(bao), [bao])
 	const allowance = useAllowanceCxSwap(contract)
 	const { onApprove } = useApproveCxSwap(contract)
 

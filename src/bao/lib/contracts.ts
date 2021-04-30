@@ -62,10 +62,10 @@ export class Contracts {
     this.defaultGas = options.defaultGas
     this.defaultGasPrice = options.defaultGasPrice
 
-    this.bao = new this.web3.eth.Contract(BaoAbi as AbiItem[])
+    this.bao = new this.web3.eth.Contract(BaocxAbi as AbiItem[])
     this.masterChef = new this.web3.eth.Contract(MasterChefAbi as AbiItem[])
     this.cxswap = new this.web3.eth.Contract(CxSwapAbi as AbiItem[])
-    this.baocx = new this.web3.eth.Contract(BaocxAbi as AbiItem[])
+    this.baocx = new this.web3.eth.Contract(BaoAbi as AbiItem[])
     this.weth = new this.web3.eth.Contract(WETHAbi as AbiItem[])
     this.wethPrice = new this.web3.eth.Contract(ChainOracle as AbiItem[])
     this.baoPrice = new this.web3.eth.Contract(UniOracleABI as AbiItem[])

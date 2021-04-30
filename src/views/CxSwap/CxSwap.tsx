@@ -15,10 +15,9 @@ import useModal from '../../hooks/useModal'
 import styled from 'styled-components'
 import Spacer from '../../components/Spacer'
 import useBao from '../../hooks/useBao'
-import CxSwapper from './components/CxSwapper'
 import SwapBaocx from './components/SwapBaocx'
 import SwapBao from './components/SwapBao'
-import { useBaoCxSwapWithdrawableBalance } from '../../hooks/useCxSwap'
+import { useBaoCxWithdrawableBalance } from '../../hooks/useOne21'
 import { getBaoContract } from '../../bao/utils'
 
 
@@ -38,7 +37,7 @@ const CxSwap: React.FC = () => {
 								title="Redeem BAOcx for BAO!"
 							/>
 						</Route>
-						<One21 />
+						<CxSwapper />
 					</>
 				) : (
 					<div
@@ -62,10 +61,10 @@ const CxSwap: React.FC = () => {
 
 export default CxSwap
 
-const One21: React.FC = () => {
+const CxSwapper: React.FC = () => {
 	const bao = useBao()
 	const baocx = useMemo(() => getBaoContract(bao), [bao])
-	const withdrawableBalance = useBaoCxSwapWithdrawableBalance(bao)
+	const withdrawableBalance = useBaoCxWithdrawableBalance(bao)
 
 	useEffect(() => {
 		window.scrollTo(0, 0)

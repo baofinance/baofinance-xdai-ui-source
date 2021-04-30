@@ -18,7 +18,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
 	max,
 	onConfirm,
 	onDismiss,
-	tokenName = 'Bao',
+	tokenName = '',
 	tokenDecimals = 18,
 }) => {
 	const [val, setVal] = useState('')

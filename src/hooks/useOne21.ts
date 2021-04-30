@@ -13,20 +13,20 @@ import BigNumber from 'bignumber.js'
 import useBlock from './useBlock'
 import { Bao } from '../bao'
 
-export const useBaoCxSwapWithdrawableBalance = (bao: Bao): BigNumber => {
+export const useBaoCxWithdrawableBalance = (bao: Bao): BigNumber => {
   const { account } = useWallet()
   const [withdrawableBalance, setWithdrawableBalance] = useState(
     new BigNumber(0),
   )
   const block = useBlock()
 
-  const one21Contract = useMemo(() => getCxSwapContract(bao), [
+  const cxswapContract = useMemo(() => getCxSwapContract(bao), [
     bao,
   ])
 
   const fetchBaocxWithdrawableBalance = useCallback(async () => {
     let balance = await getWithdrawableBalance(
-      one21Contract,
+      cxswapContract,
       account,
       getBaocxContract(bao)?.options.address,
     )
@@ -34,13 +34,13 @@ export const useBaoCxSwapWithdrawableBalance = (bao: Bao): BigNumber => {
       setWithdrawableBalance(new BigNumber(balance))
     } else {
       balance = await getWithdrawableBalance(
-        one21Contract,
+        cxswapContract,
         account,
         getBaoAddress(bao),
       )
     }
     setWithdrawableBalance(new BigNumber(balance))
-  }, [bao, account, one21Contract])
+  }, [bao, account, cxswapContract])
 
   useEffect(() => {
     if (account) {

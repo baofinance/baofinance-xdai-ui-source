@@ -44,13 +44,17 @@ export const getBaoContract = (bao: Bao): Contract => {
 	return bao && bao.contracts && bao.contracts.bao
 }
 
-export const getBaocxContract = (bao: Bao): Contract => {
-	return bao && bao.contracts && bao.contracts.baocx
-}
-
-export const getCxSwapContract = (bao: Bao): Contract => {
-	return bao && bao.contracts && bao.contracts.cxswap
-}
+export const getBaocxContract = (
+	bao: Bao | undefined,
+  ): Contract | undefined => {
+	return bao?.contracts.baocx
+  }
+  
+  export const getCxSwapContract = (
+	bao: Bao | null | undefined,
+  ): Contract | undefined => {
+	return bao?.contracts.cxswap
+  }
 
 export const getFarms = (bao: Bao): Farm[] => {
 	return bao

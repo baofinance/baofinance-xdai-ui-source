@@ -12,19 +12,19 @@ import useTokenBalance from '../../../hooks/useTokenBalance'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
-import useWithdraw from '../../../hooks/useWithdrawCx'
+import useWithdrawCx from '../../../hooks/useWithdrawCx'
 import useAllowanceCx from '../../../hooks/useAllowanceCx'
 import useApproveCx from '../../../hooks/useApproveCx'
 import baocxIcon from '../../../assets/img/baocx-icon.png'
-import useDeposit from '../../../hooks/useDepositCx'
+import useDepositCx from '../../../hooks/useDepositCx'
 import { getBaoAddress, getBaoContract } from '../../../bao/utils'
 import useBao from '../../../hooks/useBao'
 
-interface SwapBaoProps {
+interface SwapPandaProps {
 	withdrawableBalance: BigNumber
 }
 
-const SwapBao: React.FC<SwapBaoProps> = ({ withdrawableBalance }) => {
+const SwapBaocx: React.FC<SwapPandaProps> = ({ withdrawableBalance }) => {
 	const bao = useBao()
 	const tokenName = 'BAOcx'
 	const address = useMemo(() => getBaoAddress(bao), [bao])
@@ -35,8 +35,8 @@ const SwapBao: React.FC<SwapBaoProps> = ({ withdrawableBalance }) => {
 	const allowance = useAllowanceCx(contract)
 	const { onApprove } = useApproveCx(contract)
 
-	const { onDeposit } = useDeposit(address)
-	const { onWithdraw } = useWithdraw(address)
+	const { onDeposit } = useDepositCx(address)
+	const { onWithdraw } = useWithdrawCx(address)
 
 	const [onPresentDeposit] = useModal(
 		<DepositModal
@@ -52,7 +52,7 @@ const SwapBao: React.FC<SwapBaoProps> = ({ withdrawableBalance }) => {
 			max={withdrawableBalance}
 			onConfirm={onWithdraw}
 			tokenName={tokenName}
-			tokenDecimals={9}
+			tokenDecimals={18}
 		/>,
 	)
 
@@ -79,7 +79,7 @@ const SwapBao: React.FC<SwapBaoProps> = ({ withdrawableBalance }) => {
 						</CardIcon>
 						<Value value={getBalanceNumber(walletBalance, 18)} />
 						<Label text={`${tokenName} in wallet`} />
-						<Value value={getBalanceNumber(withdrawableBalance, 9)} />
+						<Value value={getBalanceNumber(withdrawableBalance, 18)} />
 						<Label text={`${tokenName} withdrawable`} />
 					</StyledCardHeader>
 					<StyledCardActions>
@@ -137,4 +137,4 @@ const StyledCardContentInner = styled.div`
 	justify-content: space-between;
 `
 
-export default SwapBao
+export default SwapBaocx
