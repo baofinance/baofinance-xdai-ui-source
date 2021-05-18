@@ -5,19 +5,19 @@ import { useWallet } from 'use-wallet'
 import { approve, getCxSwapContract } from '../bao/utils'
 import { provider } from 'web3-core'
 
-const useApproveCx = (contract: Contract) => {
+const useApproveCx = (tokenContract: Contract) => {
   const { account }: { account: string; ethereum: provider } = useWallet()
   const bao = useBao()
   const cxswapContract = getCxSwapContract(bao)
 
   const handleApprove = useCallback(async () => {
     try {
-      const tx = await approve(contract, cxswapContract, account)
+      const tx = await approve(tokenContract, cxswapContract, account)
       return tx
     } catch (e) {
       return false
     }
-  }, [account, contract, cxswapContract])
+  }, [account, tokenContract, cxswapContract])
 
   return { onApprove: handleApprove }
 }

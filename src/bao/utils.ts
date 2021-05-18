@@ -40,11 +40,11 @@ export const getBaoPriceContract = (bao: Bao): Contract => {
 export const getMasterChefContract = (bao: Bao): Contract => {
 	return bao && bao.contracts && bao.contracts.masterChef
 }
-export const getBaoContract = (bao: Bao): Contract => {
+export const getBaocxContract = (bao: Bao): Contract => {
 	return bao && bao.contracts && bao.contracts.bao
 }
 
-export const getBaocxContract = (
+export const getBaoContract = (
 	bao: Bao | undefined,
   ): Contract | undefined => {
 	return bao?.contracts.baocx

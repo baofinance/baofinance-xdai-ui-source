@@ -15,9 +15,9 @@ import WithdrawModal from './WithdrawModal'
 import useWithdrawCx from '../../../hooks/useWithdrawCx'
 import useAllowanceCx from '../../../hooks/useAllowanceCx'
 import useApproveCx from '../../../hooks/useApproveCx'
-import baocxIcon from '../../../assets/img/baocx-icon.png'
+import baocxIcon from '../../../assets/img/baocx-icon.svg'
 import useDepositCx from '../../../hooks/useDepositCx'
-import { getBaoAddress, getBaoContract } from '../../../bao/utils'
+import { getBaoAddress, getBaocxContract } from '../../../bao/utils'
 import useBao from '../../../hooks/useBao'
 
 interface SwapPandaProps {
@@ -31,7 +31,7 @@ const SwapBaocx: React.FC<SwapPandaProps> = ({ withdrawableBalance }) => {
 	const walletBalance = useTokenBalance(address)
 
 	const [requestedApproval, setRequestedApproval] = useState(false)
-	const contract = useMemo(() => getBaoContract(bao), [bao])
+	const contract = useMemo(() => getBaocxContract(bao), [bao])
 	const allowance = useAllowanceCx(contract)
 	const { onApprove } = useApproveCx(contract)
 

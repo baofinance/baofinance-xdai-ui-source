@@ -5,7 +5,7 @@ import { useWallet } from 'use-wallet'
 import {
   getCxSwapContract,
   getWithdrawableBalance,
-  getBaocxContract,
+  getBaoContract,
   getBaoAddress,
 } from '../bao/utils'
 import BigNumber from 'bignumber.js'

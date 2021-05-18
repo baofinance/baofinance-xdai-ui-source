@@ -5,7 +5,7 @@ import { useWallet } from 'use-wallet'
 import {
   getCxSwapContract,
   getWithdrawableBalance,
-  getBaocxContract,
+  getBaoContract,
   getBaoAddress,
 } from '../bao/utils'
 import BigNumber from 'bignumber.js'
@@ -28,7 +28,7 @@ export const useBaoCxWithdrawableBalance = (bao: Bao): BigNumber => {
     let balance = await getWithdrawableBalance(
       cxswapContract,
       account,
-      getBaocxContract(bao)?.options.address,
+      getBaoContract(bao)?.options.address,
     )
     if (balance.isGreaterThan(0)) {
       setWithdrawableBalance(new BigNumber(balance))

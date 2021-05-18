@@ -18,7 +18,7 @@ import useBao from '../../hooks/useBao'
 import SwapBaocx from './components/SwapBaocx'
 import SwapBao from './components/SwapBao'
 import { useBaoCxWithdrawableBalance } from '../../hooks/useOne21'
-import { getBaoContract } from '../../bao/utils'
+import { getBaocxContract } from '../../bao/utils'
 
 
 
@@ -63,7 +63,7 @@ export default CxSwap
 
 const CxSwapper: React.FC = () => {
 	const bao = useBao()
-	const baocx = useMemo(() => getBaoContract(bao), [bao])
+	const baocx = useMemo(() => getBaocxContract(bao), [bao])
 	const withdrawableBalance = useBaoCxWithdrawableBalance(bao)
 
 	useEffect(() => {
