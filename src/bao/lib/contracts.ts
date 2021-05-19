@@ -1,27 +1,27 @@
 import BigNumber from 'bignumber.js/bignumber'
 import Web3 from 'web3'
-import * as Types from './types.js'
-import {
-  SUBTRACT_GAS_LIMIT,
-  contractAddresses,
-  supportedPools,
-  SupportedPool,
-} from './constants'
-
-import UNIV2PairAbi from './abi/uni_v2_lp.json'
-import BaoAbi from './abi/bao.json'
-import BaocxAbi from './abi/baocx.json'
-import MasterChefAbi from './abi/masterchef.json'
-import ERC20Abi from './abi/erc20.json'
-import WETHAbi from './abi/weth.json'
-import UniOracleABI from './abi/unioracle.json'
-import ChainOracle from './abi/chainoracle.json'
-import CxSwapAbi from './abi/cxswap.json'
-import { BaoOptions } from '../Bao'
 import { provider } from 'web3-core/types'
 import { Contract } from 'web3-eth-contract'
 import { AbiItem } from 'web3-utils'
 import { getContract } from '../../utils/erc20'
+import { BaoOptions } from '../Bao'
+import BaoAbi from './abi/bao.json'
+import BaocxAbi from './abi/baocx.json'
+import ChainOracle from './abi/chainoracle.json'
+import CxSwapAbi from './abi/cxswap.json'
+import ERC20Abi from './abi/erc20.json'
+import MasterChefAbi from './abi/masterchef.json'
+import UniOracleABI from './abi/unioracle.json'
+import UNIV2PairAbi from './abi/uni_v2_lp.json'
+import WETHAbi from './abi/weth.json'
+import {
+  contractAddresses,
+  SUBTRACT_GAS_LIMIT,
+  SupportedPool,
+  supportedPools
+} from './constants'
+import * as Types from './types.js'
+
 
 export interface FarmableSupportedPool extends SupportedPool {
   lpAddress: string
@@ -71,7 +71,7 @@ export class Contracts {
     this.baoPrice = new this.web3.eth.Contract(UniOracleABI as AbiItem[])
 
     this.pools =
-      networkId == 100
+      networkId === 100
         ? supportedPools.map((pool) =>
             Object.assign(pool, {
               lpAddress: pool.lpAddresses[networkId],
@@ -94,7 +94,7 @@ export class Contracts {
       else console.error('Contract address not found in network', networkId)
     }
 
-    if (networkId == 100) {
+    if (networkId === 100) {
       setProvider(this.bao, contractAddresses.bao[networkId])
       setProvider(this.masterChef, contractAddresses.masterChef[networkId])
       setProvider(this.weth, contractAddresses.weth[networkId])

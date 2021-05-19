@@ -1,18 +1,17 @@
+import BigNumber from 'bignumber.js'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-
 import { useWallet } from 'use-wallet'
-
+import { Bao } from '../bao'
 import {
-  getCxSwapContract,
-  getWithdrawableBalance,
-  getBaoContract,
   getBaoAddress,
   getBaocxAddress,
+  getCxSwapContract,
+  getWithdrawableBalance
 } from '../bao/utils'
-import BigNumber from 'bignumber.js'
-
 import useBlock from './useBlock'
-import { Bao } from '../bao'
+
+
+
 
 export const useBaoCxWithdrawableBalance = (bao: Bao): BigNumber => {
   const { account } = useWallet()

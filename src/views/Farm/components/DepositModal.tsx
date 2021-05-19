@@ -3,11 +3,10 @@ import React, { useCallback, useMemo, useState } from 'react'
 import Button from '../../../components/Button'
 import Modal, { ModalProps } from '../../../components/Modal'
 import ModalActions from '../../../components/ModalActions'
-import ModalTitle from '../../../components/ModalTitle'
 import ModalContent from '../../../components/ModalContent'
+import ModalTitle from '../../../components/ModalTitle'
 import TokenInput from '../../../components/TokenInput'
 import { getFullDisplayBalance } from '../../../utils/formatBalance'
-import styled from 'styled-components'
 
 interface DepositModalProps extends ModalProps {
 	max: BigNumber

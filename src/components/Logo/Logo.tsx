@@ -6,7 +6,7 @@ import baoLogo from '../../assets/img/bao-logo.png'
 const Logo: React.FC = () => {
 	return (
 		<StyledLogo to="/">
-			<img src={baoLogo} height="32" style={{ marginTop: -4 }} />
+			<img src={baoLogo} height="32" style={{ marginTop: -4 }} alt="" />
 			<StyledText>
 				Bao.Finance <MasterChefText>BaoChef</MasterChefText>
 			</StyledText>

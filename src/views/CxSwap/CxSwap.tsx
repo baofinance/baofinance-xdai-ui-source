@@ -1,22 +1,22 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect } from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import styled from 'styled-components'
 import { useWallet } from 'use-wallet'
-
 import baoBanner from '../../assets/img/bao-banner.png'
-
 import Button from '../../components/Button'
 import Page from '../../components/Page'
 import PageHeader from '../../components/PageHeader'
-import WalletProviderModal from '../../components/WalletProviderModal'
-
-import useModal from '../../hooks/useModal'
-
-import styled from 'styled-components'
 import Spacer from '../../components/Spacer'
+import WalletProviderModal from '../../components/WalletProviderModal'
 import useBao from '../../hooks/useBao'
-import SwapBaocx from './components/SwapBaocx'
-import SwapBao from './components/SwapBao'
+import useModal from '../../hooks/useModal'
 import { useBaoCxWithdrawableBalance } from '../../hooks/useOne21'
+import SwapBao from './components/SwapBao'
+import SwapBaocx from './components/SwapBaocx'
+
+
+
+
 
 const CxSwap: React.FC = () => {
 	const { path } = useRouteMatch()

@@ -1,12 +1,12 @@
-import { useCallback, useEffect, useState } from 'react'
-import { provider } from 'web3-core'
-
 import BigNumber from 'bignumber.js'
+import { useCallback, useEffect, useState } from 'react'
 import { useWallet } from 'use-wallet'
-
-import { getLockedEarned, getBaocxContract } from '../bao/utils'
+import { provider } from 'web3-core'
+import { getBaocxContract, getLockedEarned } from '../bao/utils'
 import useBao from './useBao'
 import useBlock from './useBlock'
+
+
 
 const useLockedEarnings = () => {
   const [balance, setBalance] = useState(new BigNumber(0))
