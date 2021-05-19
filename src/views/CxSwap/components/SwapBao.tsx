@@ -8,7 +8,6 @@ import Label from '../../../components/Label'
 import Value from '../../../components/Value'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import { Contract } from 'web3-eth-contract'
 import useModal from '../../../hooks/useModal'
 import WithdrawModal from './WithdrawModal'
 import BigNumber from 'bignumber.js'
@@ -28,18 +27,16 @@ interface SwapCxProps {
 const SwapCxSwap: React.FC<SwapCxProps> = ({ withdrawableBalance }) => {
 	const bao = useBao()
 
-	const address = useMemo(() => getBaoContract(bao)?.options.address, [
-		bao,
-	])
+	const address = useMemo(() => getBaoContract(bao)?.options.address, [bao])
 	const tokenName = 'BAO'
 	const tokenDecimals = 18
 
 	const walletBalance = useTokenBalance(address)
 
 	const [requestedApproval, setRequestedApproval] = useState(false)
-	const contract = useMemo(() => getBaoContract(bao), [bao])
-	const allowance = useAllowanceCxSwap(contract)
-	const { onApprove } = useApproveCxSwap(contract)
+	const baoContract = useMemo(() => getBaoContract(bao), [bao])
+	const allowance = useAllowanceCxSwap(baoContract)
+	const { onApprove } = useApproveCxSwap(baoContract)
 
 	const { onDeposit } = useDeposit(address, tokenDecimals)
 	const { onWithdraw } = useWithdraw(address)

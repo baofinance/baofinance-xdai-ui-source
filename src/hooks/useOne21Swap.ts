@@ -5,7 +5,6 @@ import { useWallet } from 'use-wallet'
 import {
   getCxSwapContract,
   getWithdrawableBalance,
-  getBaoContract,
   getBaoAddress,
 } from '../bao/utils'
 import BigNumber from 'bignumber.js'
@@ -20,9 +19,7 @@ export const useCxSwapSwapWithdrawableBalance = (bao: Bao): BigNumber => {
   )
   const block = useBlock()
 
-  const cxswapContract = useMemo(() => getCxSwapContract(bao), [
-    bao,
-  ])
+  const cxswapContract = useMemo(() => getCxSwapContract(bao), [bao])
 
   const fetchCxSwapWithdrawableBalance = useCallback(async () => {
     let balance = await getWithdrawableBalance(

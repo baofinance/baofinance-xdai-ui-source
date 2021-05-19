@@ -5,16 +5,14 @@ import { useWallet } from 'use-wallet'
 
 import { getCxSwapContract, withdraw } from '../bao/utils'
 
-const useWithdraw = (tokenAddress: string) => {
+const useWithdraw = (
+  tokenAddress: string,
+): { onWithdraw: (amount: string) => Promise<void> } => {
   const { account } = useWallet()
   const bao = useBao()
 
   const handle = useCallback(async () => {
-    const txHash = await withdraw(
-      getCxSwapContract(bao),
-      tokenAddress,
-      account,
-    )
+    const txHash = await withdraw(getCxSwapContract(bao), tokenAddress, account)
     console.log(txHash)
   }, [account, bao])
 

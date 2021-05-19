@@ -11,16 +11,12 @@ import WalletProviderModal from '../../components/WalletProviderModal'
 
 import useModal from '../../hooks/useModal'
 
-
 import styled from 'styled-components'
 import Spacer from '../../components/Spacer'
 import useBao from '../../hooks/useBao'
 import SwapBaocx from './components/SwapBaocx'
 import SwapBao from './components/SwapBao'
 import { useBaoCxWithdrawableBalance } from '../../hooks/useOne21'
-import { getBaocxContract } from '../../bao/utils'
-
-
 
 const CxSwap: React.FC = () => {
 	const { path } = useRouteMatch()
@@ -32,10 +28,7 @@ const CxSwap: React.FC = () => {
 				{account ? (
 					<>
 						<Route exact path={path}>
-							<PageHeader
-								icon={baoBanner}
-								title="Redeem BAOcx for BAO!"
-							/>
+							<PageHeader icon={baoBanner} title="Redeem BAOcx for BAO!" />
 						</Route>
 						<CxSwapper />
 					</>
@@ -63,7 +56,6 @@ export default CxSwap
 
 const CxSwapper: React.FC = () => {
 	const bao = useBao()
-	const baocx = useMemo(() => getBaocxContract(bao), [bao])
 	const withdrawableBalance = useBaoCxWithdrawableBalance(bao)
 
 	useEffect(() => {
@@ -83,17 +75,12 @@ const CxSwapper: React.FC = () => {
 					</StyledCardWrapper>
 				</StyledCardsWrapper>
 				<Spacer size="lg" />
-
-				{/*	<StyledCardsWrapper>
-					<StyledCardWrapper>
-						<BaocxFarm />
-					</StyledCardWrapper>
-			</StyledCardsWrapper> */}
 				<StyledInfo>
 					<p>
-						ℹ️️ Interacting with this contract will redeem your BAOcx farming rewards for BAO! 
-						Deposit BAOcx and withdraw an equal amount of BAO. Once you deposit tokens into the 
-						contract, you must withdraw the full amount in BAO or BAOcx, before you can deposit again.
+						ℹ️️ Interacting with this contract will redeem your BAOcx farming
+						rewards for BAO! Deposit BAOcx and withdraw an equal amount of BAO.
+						Once you deposit tokens into the contract, you must withdraw the
+						full amount in BAO or BAOcx, before you can deposit again.
 					</p>{' '}
 				</StyledInfo>
 				<Spacer size="lg" />

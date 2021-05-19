@@ -7,6 +7,7 @@ import {
   getWithdrawableBalance,
   getBaoContract,
   getBaoAddress,
+  getBaocxAddress,
 } from '../bao/utils'
 import BigNumber from 'bignumber.js'
 
@@ -20,15 +21,13 @@ export const useBaoCxWithdrawableBalance = (bao: Bao): BigNumber => {
   )
   const block = useBlock()
 
-  const cxswapContract = useMemo(() => getCxSwapContract(bao), [
-    bao,
-  ])
+  const cxswapContract = useMemo(() => getCxSwapContract(bao), [bao])
 
   const fetchBaocxWithdrawableBalance = useCallback(async () => {
     let balance = await getWithdrawableBalance(
       cxswapContract,
       account,
-      getBaoContract(bao)?.options.address,
+      getBaocxAddress(bao),
     )
     if (balance.isGreaterThan(0)) {
       setWithdrawableBalance(new BigNumber(balance))
