@@ -65,7 +65,7 @@ const Button: React.FC<ButtonProps> = ({
 	}
 
 	const ButtonChild = useMemo(() => {
-		if (to != '' && to != null) {
+		if (to !== '' && to != null) {
 			return <StyledLink to={to}>{text}</StyledLink>
 		} else if (href) {
 			return (

@@ -2,10 +2,11 @@ import React, { createContext, useEffect, useState } from 'react'
 
 import { useWallet } from 'use-wallet'
 
-import { Bao } from '../../bao'
+import { Bao } from '../../bao/index'
+import { provider } from 'web3-core/types'
 
 export interface BaoContext {
-	bao?: typeof Bao
+	bao?: Bao
 }
 
 export const Context = createContext<BaoContext>({
@@ -14,23 +15,21 @@ export const Context = createContext<BaoContext>({
 
 declare global {
 	interface Window {
-		baosauce: any
-		bao: any
+		bao: Bao
 	}
 }
 
 const BaoProvider: React.FC = ({ children }) => {
-	const { ethereum }: { ethereum: any } = useWallet()
-	const [bao, setBao] = useState<any>()
+	const { ethereum, chainId, account } = useWallet<provider>()
+	const [bao, setBao] = useState<Bao>()
 
 	window.bao = bao
 
 	useEffect(() => {
 		if (ethereum) {
-			const chainId = Number(ethereum.chainId)
 			console.log(chainId)
 			const baoLib = new Bao(ethereum, chainId, false, {
-				defaultAccount: ethereum.selectedAddress,
+				defaultAccount: account,
 				defaultConfirmations: 1,
 				autoGasMultiplier: 1.05,
 				testing: false,
@@ -41,11 +40,11 @@ const BaoProvider: React.FC = ({ children }) => {
 			})
 			console.log(baoLib)
 			setBao(baoLib)
-			window.baosauce = baoLib
 		}
-	}, [ethereum])
+	}, [ethereum, chainId, account])
 
-	return <Context.Provider value={{ bao }}>{children}</Context.Provider>
+	const baoContext: { bao: Bao } = { bao }
+	return <Context.Provider value={baoContext}>{children}</Context.Provider>
 }
 
 export default BaoProvider

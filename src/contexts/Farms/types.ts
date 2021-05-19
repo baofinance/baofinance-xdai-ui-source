@@ -13,6 +13,7 @@ export interface Farm {
   lpTokenAddress: string
   lpContract: Contract
   tokenAddress: string
+  tokenDecimals: number
   earnToken: string
   earnTokenAddress: string
   icon: string
