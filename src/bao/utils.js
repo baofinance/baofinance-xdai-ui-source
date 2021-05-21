@@ -44,8 +44,13 @@ export const getBaoPriceContract = (bao) => {
 export const getMasterChefContract = (bao) => {
 	return bao && bao.contracts && bao.contracts.masterChef
 }
+
 export const getBaoContract = (bao) => {
 	return bao && bao.contracts && bao.contracts.bao
+}
+
+export const getxBaoStakingContract = (bao) => {
+	return bao && bao.contracts && bao.contracts.xbaoStaking
 }
 
 export const getFarms = (bao) => {
@@ -220,6 +225,10 @@ export const getBaoSupply = async (bao) => {
 	return new BigNumber(await bao.contracts.bao.methods.totalSupply().call())
 }
 
+export const getxBaoSupply = async (bao) => {
+	return new BigNumber(await bao.contracts.xbao.methods.totalSupply().call())
+}
+
 export const getReferrals = async (masterChefContract, account) => {
 	return await masterChefContract.methods.getGlobalRefAmount(account).call()
 }
@@ -249,3 +258,32 @@ export const redeem = async (masterChefContract, account) => {
 		alert('pool not active')
 	}
 }
+
+export const enter = async (
+	contract,
+	amount,
+	account,
+  ) => {
+	return contract?.methods
+	  .enter(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+	  .send({ from: account })
+	  .on('transactionHash', (tx) => {
+		console.log(tx)
+		return tx.transactionHash
+})
+  }
+  
+  export const leave = async (
+	contract,
+	amount,
+	account,
+  ) => {
+	return contract.methods
+	  .leave(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+	  .send({ from: account })
+	  .on('transactionHash', (tx) => {
+		console.log(tx)
+		return tx.transactionHash
+})
+  }
+  
