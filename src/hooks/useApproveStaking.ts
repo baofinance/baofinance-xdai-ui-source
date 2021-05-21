@@ -4,7 +4,7 @@ import { provider } from 'web3-core'
 import {
   approve,
   getBaoContract,
-  getxBaoStakingContract
+  getxBaoContract
 } from '../bao/utils'
 import useBao from './useBao'
 
@@ -13,7 +13,7 @@ const useApproveStaking = () => {
   const { account }: { account: string; ethereum: provider } = useWallet()
   const bao = useBao()
   const lpContract = getBaoContract(bao)
-  const contract = getxBaoStakingContract(bao)
+  const contract = getxBaoContract(bao)
 
   const handleApprove = useCallback(async () => {
     try {

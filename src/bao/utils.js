@@ -49,8 +49,8 @@ export const getBaoContract = (bao) => {
 	return bao && bao.contracts && bao.contracts.bao
 }
 
-export const getxBaoStakingContract = (bao) => {
-	return bao && bao.contracts && bao.contracts.xbaoStaking
+export const getxBaoContract = (bao) => {
+	return bao && bao.contracts && bao.contracts.xbao
 }
 
 export const getFarms = (bao) => {

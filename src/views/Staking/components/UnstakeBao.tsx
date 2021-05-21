@@ -13,7 +13,7 @@ import { Contract } from 'web3-eth-contract'
 import useModal from '../../../hooks/useModal'
 import WithdrawModal from './WithdrawModal'
 import useLeave from '../../../hooks/useLeave'
-import xbao from '../../../assets/img/xbao.png'
+import xbao from '../../../assets/img/xbao-icon.svg'
 
 interface HarvestProps {
 	lpContract: Contract

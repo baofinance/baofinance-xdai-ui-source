@@ -120,10 +120,6 @@ export const contractAddresses = {
 		100: '0xe0d0b1DBbCF3dd5CAc67edaf9243863Fd70745DA', //change
 		4: '0xE5AFBb49BeB7552a1167df6aAED70d88279787e8',
 	},
-	xbaoStaking: {
-		100: '0xe0d0b1DBbCF3dd5CAc67edaf9243863Fd70745DA', //change
-		4: '0xE5AFBb49BeB7552a1167df6aAED70d88279787e8',
-	},
 	masterChef: {
 		100: '0xf712a82DD8e2Ac923299193e9d6dAEda2d5a32fd',
 		4: '0xdA6CFdB12112309E4587D4a747a55E2970Eda4f3',

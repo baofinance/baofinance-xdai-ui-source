@@ -3,7 +3,7 @@ import { useCallback } from 'react'
 import useBao from './useBao'
 import { useWallet } from 'use-wallet'
 
-import { enter, getxBaoStakingContract } from '../bao/utils'
+import { enter, getxBaoContract } from '../bao/utils'
 
 const useEnter = () => {
   const { account } = useWallet()
@@ -12,7 +12,7 @@ const useEnter = () => {
   const handle = useCallback(
     async (amount: string) => {
       const txHash = await enter(
-        getxBaoStakingContract(bao),
+        getxBaoContract(bao),
         amount,
         account,
       )

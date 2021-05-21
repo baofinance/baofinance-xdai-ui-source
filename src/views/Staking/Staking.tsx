@@ -4,7 +4,7 @@ import { default as React, useEffect, useMemo, useState } from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
 import { provider } from 'web3-core'
-import pnda from '../../assets/img/pnda.png'
+import baoicon from '../../assets/img/bao-icon.svg'
 import Button from '../../components/Button'
 import Page from '../../components/Page'
 import PageHeader from '../../components/PageHeader'
@@ -57,7 +57,7 @@ const Staking: React.FC = () => {
 					<>
 						<Route exact path={path}>
 							<PageHeader
-								icon={pnda}
+								icon={baoicon}
 								title="Welcome to the BaoBar"
 								subtitle="Stake BAO and earn with xBAO!!"
 							/>
