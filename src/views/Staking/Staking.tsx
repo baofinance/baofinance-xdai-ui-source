@@ -13,18 +13,18 @@ import WalletProviderModal from '../../components/WalletProviderModal'
 import useModal from '../../hooks/useModal'
 import useBao from '../../hooks/useBao'
 import { contractAddresses } from '../../bao/lib/constants'
-import { getxBaoSupply } from '../../bao/utils'
+import { gettBaoSupply } from '../../bao/utils'
 import { getContract } from '../../utils/erc20'
 import { getBalanceNumber } from '../../utils/formatBalance'
 import StakeBao from '../Staking/components/StakeBao'
-import UnstakexBao from '../Staking/components/UnstakeBao'
+import UnstaketBao from '../Staking/components/UnstakeBao'
 
 const Staking: React.FC = () => {
 	const { path } = useRouteMatch()
 	const { account } = useWallet()
 	const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />)
 	const { tokenAddress } = {
-		tokenAddress: contractAddresses.xbao[100],
+		tokenAddress: contractAddresses.tbao[100],
 	}
 
 	const [totalSupply, setTotalSupply] = useState<BigNumber>()
@@ -38,7 +38,7 @@ const Staking: React.FC = () => {
 
 	useEffect(() => {
 		async function fetchTotalSupply() {
-			const supply = await getxBaoSupply(bao)
+			const supply = await gettBaoSupply(bao)
 			setTotalSupply(supply)
 		}
 		if (bao) {
@@ -58,14 +58,14 @@ const Staking: React.FC = () => {
 						<Route exact path={path}>
 							<PageHeader
 								icon={baoicon}
-								title="Welcome to the BaoBar"
-								subtitle="Stake BAO and earn with xBAO!!"
+								title="Welcome to the Tea House"
+								subtitle="Stake BAOcx and earn with tBAO!!"
 							/>
 						</Route>
 						<StyledFarm>
 							<StyledCardsWrapper>
 								<StyledCardWrapper>
-									<UnstakexBao lpContract={lpContract} />
+									<UnstaketBao lpContract={lpContract} />
 								</StyledCardWrapper>
 								<Spacer />
 								<StyledCardWrapper>
@@ -75,13 +75,13 @@ const Staking: React.FC = () => {
 							<Spacer size="lg" />
 							<StyledInfo>
 								ℹ️️ You will earn a portion of the swaps fees based on the amount
-								of xBao held relative the weight of the staking. xBao can be
+								of tBao held relative the weight of the staking. tBao can be
 								minted by staking Bao. To redeem Bao staked plus swap fees
-							convert xBao back to Bao.{' '}
+							convert tBao back to Bao.{' '}
 								{totalSupply
 									? `There are currently ${getBalanceNumber(
 										totalSupply,
-									)} xBao in existence.`
+									)} tBao in existence.`
 									: ''}
 							</StyledInfo>
 						</StyledFarm>

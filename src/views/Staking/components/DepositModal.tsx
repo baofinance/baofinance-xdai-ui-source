@@ -17,7 +17,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
 	max,
 	onConfirm,
 	onDismiss,
-	tokenName = 'BAO',
+	tokenName = 'BAOcx',
 }) => {
 	const [val, setVal] = useState('')
 	const [pendingTx, setPendingTx] = useState(false)

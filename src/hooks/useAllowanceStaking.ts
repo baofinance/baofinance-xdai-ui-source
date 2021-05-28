@@ -4,7 +4,7 @@ import { useWallet } from 'use-wallet'
 import { provider } from 'web3-core'
 import {
   getBaoContract,
-  getxBaoContract
+  gettBaoContract
 } from '../bao/utils'
 import { getAllowance } from '../utils/erc20'
 import useBao from './useBao'
@@ -16,7 +16,7 @@ const useAllowanceStaking = () => {
   const { account }: { account: string; ethereum: provider } = useWallet()
   const bao = useBao()
   const baoContract = getBaoContract(bao)
-  const stakingContract = getxBaoContract(bao)
+  const stakingContract = gettBaoContract(bao)
 
   const fetchAllowance = useCallback(async () => {
     const allowance = await getAllowance(

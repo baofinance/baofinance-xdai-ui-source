@@ -17,7 +17,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
 	onConfirm,
 	onDismiss,
 	max,
-	tokenName = 'xBAO',
+	tokenName = 'tBAO',
 }) => {
 	const [val, setVal] = useState('')
 	const [pendingTx, setPendingTx] = useState(false)

@@ -21,13 +21,13 @@ import bao from '../../../assets/img/bao.png'
 interface StakeProps {}
 
 const StakeBao: React.FC<StakeProps> = ({}) => {
-	const tokenName = 'BAO'
+	const tokenName = 'BAOcx'
 	const [requestedApproval, setRequestedApproval] = useState(false)
 
 	const allowance = useAllowanceStaking()
 	const { onApprove } = useApproveStaking()
 
-	const tokenBalance = useTokenBalance(contractAddresses.xbao[100])
+	const tokenBalance = useTokenBalance(contractAddresses.bao[100])
 
 	const { onEnter } = useEnter()
 	const { onLeave } = useLeave()
@@ -62,20 +62,20 @@ const StakeBao: React.FC<StakeProps> = ({}) => {
 							<img src={bao} alt="" height="50" />
 						</CardIcon>
 						<Value value={getBalanceNumber(tokenBalance)} />
-						<Label text={`BAO Available`} />
+						<Label text={`BAOcx Available`} />
 					</StyledCardHeader>
 					<StyledCardActions>
 						{!allowance.toNumber() ? (
 							<Button
 								disabled={requestedApproval}
 								onClick={handleApprove}
-								text={`Approve BAO`}
+								text={`Approve BAOcx`}
 							/>
 						) : (
 							<>
 								<Button
 									disabled={tokenBalance.eq(new BigNumber(0))}
-									text="Convert to xBAO"
+									text="Convert to tBAO"
 									onClick={onPresentDeposit}
 								/>
 								<StyledActionSpacer />

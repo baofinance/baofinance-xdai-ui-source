@@ -13,23 +13,23 @@ import { Contract } from 'web3-eth-contract'
 import useModal from '../../../hooks/useModal'
 import WithdrawModal from './WithdrawModal'
 import useLeave from '../../../hooks/useLeave'
-import xbao from '../../../assets/img/xbao-icon.svg'
+import tbao from '../../../assets/img/tbao-icon.svg'
 
 interface HarvestProps {
 	lpContract: Contract
 }
 
-const UnstakexBao: React.FC<HarvestProps> = ({ lpContract }) => {
-	const xBaoBalance = useTokenBalance(lpContract.options.address)
+const UnstaketBao: React.FC<HarvestProps> = ({ lpContract }) => {
+	const tBaoBalance = useTokenBalance(lpContract.options.address)
 	const [pendingTx, setPendingTx] = useState(false)
 
 	const { onLeave } = useLeave()
 
-	const tokenName = 'xBAO'
+	const tokenName = 'tBAO'
 
 	const [onPresentLeave] = useModal(
 		<WithdrawModal
-			max={xBaoBalance}
+			max={tBaoBalance}
 			onConfirm={onLeave}
 			tokenName={tokenName}
 		/>,
@@ -41,15 +41,15 @@ const UnstakexBao: React.FC<HarvestProps> = ({ lpContract }) => {
 				<StyledCardContentInner>
 					<StyledCardHeader>
 						<CardIcon>
-						<img src={xbao} alt="" height="50" />
+						<img src={tbao} alt="" height="50" />
 						</CardIcon>
-						<Value value={getBalanceNumber(xBaoBalance)} />
-						<Label text="xBAO Available" />
+						<Value value={getBalanceNumber(tBaoBalance)} />
+						<Label text="tBAO Available" />
 					</StyledCardHeader>
 					<StyledCardActions>
 						<Button
-							disabled={!xBaoBalance.toNumber() || pendingTx}
-							text={pendingTx ? 'Converting to BAO' : 'Convert to BAO'}
+							disabled={!tBaoBalance.toNumber() || pendingTx}
+							text={pendingTx ? 'Converting to BAOcx' : 'Convert to BAOcx'}
 							onClick={async () => {
 								setPendingTx(true)
 								await onPresentLeave()
@@ -88,4 +88,4 @@ const StyledCardContentInner = styled.div`
 	justify-content: space-between;
 `
 
-export default UnstakexBao
+export default UnstaketBao
