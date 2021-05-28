@@ -28,8 +28,7 @@ export class Contracts {
 		this.defaultGasPrice = options.defaultGasPrice
 
 		this.bao = new this.web3.eth.Contract(BaoAbi)
-		this.tbao = new this.web3.eth.Contract(tBaoAbi)
-		this.teaMaker = new this.web3.eth.Contract(TeaMakerAbi)
+		this.tBaoStaking = new this.web3.eth.Contract(tBaoAbi)
 		this.masterChef = new this.web3.eth.Contract(MasterChefAbi)
 		this.weth = new this.web3.eth.Contract(WETHAbi)
 		this.wethPrice = new this.web3.eth.Contract(ChainOracle)
@@ -61,8 +60,7 @@ export class Contracts {
 		}
 
 		setProvider(this.bao, contractAddresses.bao[networkId])
-		setProvider(this.tbao, contractAddresses.tbao[networkId])
-		setProvider(this.teaMaker, contractAddresses.teaMaker[networkId])
+		setProvider(this.tBaoStaking, contractAddresses.tbao[networkId])
 		setProvider(this.masterChef, contractAddresses.masterChef[networkId])
 		setProvider(this.weth, contractAddresses.weth[networkId])
 		setProvider(this.wethPrice, contractAddresses.wethPrice[networkId])
@@ -78,8 +76,6 @@ export class Contracts {
 
 	setDefaultAccount(account) {
 		this.bao.options.from = account
-		this.tbao.options.from = account
-		this.teaMaker.options.from = account
 		this.masterChef.options.from = account
 		this.wethPrice.options.from = account
 		this.baoPrice.options.from = account

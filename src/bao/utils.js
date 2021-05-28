@@ -29,6 +29,7 @@ export const getBaoPriceAddress = (bao) => {
 export const getBaoAddress = (bao) => {
 	return bao && bao.baoAddress
 }
+
 export const getWethContract = (bao) => {
 	return bao && bao.contracts && bao.contracts.weth
 }
@@ -49,8 +50,8 @@ export const getBaoContract = (bao) => {
 	return bao && bao.contracts && bao.contracts.bao
 }
 
-export const gettBaoContract = (bao) => {
-	return bao && bao.contracts && bao.contracts.tbao
+export const gettBaoStakingContract = (bao) => {
+	return bao && bao.contracts && bao.contracts.tBaoStaking
 }
 
 export const getFarms = (bao) => {
@@ -221,7 +222,9 @@ export const getBaoSupply = async (bao) => {
 }
 
 export const gettBaoSupply = async (bao) => {
-	return new BigNumber(await bao.contracts.tbao.methods.totalSupply().call())
+	return new BigNumber(
+		await bao.contracts.tBaoStaking.methods.totalSupply().call(),
+	)
 }
 
 export const getReferrals = async (masterChefContract, account) => {
