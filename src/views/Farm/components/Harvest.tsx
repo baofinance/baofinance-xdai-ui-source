@@ -1,27 +1,20 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import baoIcon from '../../../assets/img/bao.png'
 import Button from '../../../components/Button'
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import CardIcon from '../../../components/CardIcon'
 import Label from '../../../components/Label'
+import Spacer from '../../../components/Spacer'
 import Value from '../../../components/Value'
+import useBao from '../../../hooks/useBao'
 import useEarnings from '../../../hooks/useEarnings'
 import useLockedEarnings from '../../../hooks/useLockedEarnings'
 import useReward from '../../../hooks/useReward'
-import useValues from '../../../hooks/useValues'
 import useSubValues from '../../../hooks/useSubValues'
+import useValues from '../../../hooks/useValues'
 import { getBalanceNumber } from '../../../utils/formatBalance'
-import {
-	getWethPrice,
-	getBaoPrice,
-	getWethPriceContract,
-	getBaoPriceContract,
-} from '../../../bao/utils'
-import { BigNumber } from 'bignumber.js'
-import Spacer from '../../../components/Spacer'
-import useBao from '../../../hooks/useBao'
-import baoIcon from '../../../assets/img/bao.png'
 
 interface HarvestProps {
 	pid: number
@@ -42,7 +35,7 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
 				<StyledCardContentInner>
 					<StyledCardHeader>
 						<CardIcon>
-							<img src={baoIcon} height={50} />
+							<img src={baoIcon} height={50} alt="" />
 						</CardIcon>
 						<Value value={getBalanceNumber(earnings)} />
 						<Label text="BAOcx Earned" />
