@@ -2,14 +2,9 @@ import BigNumber from 'bignumber.js'
 import { useCallback, useEffect, useState } from 'react'
 import { useWallet } from 'use-wallet'
 import { provider } from 'web3-core'
-import {
-  getBaoContract,
-  gettBaoStakingContract
-} from '../bao/utils'
+import { getBaoContract, gettBaoStakingContract } from '../bao/utils'
 import { getAllowance } from '../utils/erc20'
 import useBao from './useBao'
-
-
 
 const useAllowanceStaking = () => {
   const [allowance, setAllowance] = useState(new BigNumber(0))

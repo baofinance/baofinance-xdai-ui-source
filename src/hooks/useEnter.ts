@@ -11,11 +11,7 @@ const useEnter = () => {
 
   const handle = useCallback(
     async (amount: string) => {
-      const txHash = await enter(
-        gettBaoStakingContract(bao),
-        amount,
-        account,
-      )
+      const txHash = await enter(gettBaoStakingContract(bao), amount, account)
       console.log(txHash)
     },
     [account],

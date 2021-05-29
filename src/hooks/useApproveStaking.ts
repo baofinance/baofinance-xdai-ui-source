@@ -1,13 +1,8 @@
 import { useCallback } from 'react'
 import { useWallet } from 'use-wallet'
 import { provider } from 'web3-core'
-import {
-  approve,
-  getBaoContract,
-  gettBaoStakingContract
-} from '../bao/utils'
+import { approve, getBaoContract, gettBaoStakingContract } from '../bao/utils'
 import useBao from './useBao'
-
 
 const useApproveStaking = () => {
   const { account }: { account: string; ethereum: provider } = useWallet()

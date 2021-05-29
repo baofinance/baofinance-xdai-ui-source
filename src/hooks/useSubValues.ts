@@ -1,9 +1,7 @@
 import { BigNumber } from 'bignumber.js'
 import { useCallback, useEffect, useState } from 'react'
 import { useWallet } from 'use-wallet'
-import {
-  getBaoPrice, getWethPrice
-} from '../bao/utils'
+import { getBaoPrice, getWethPrice } from '../bao/utils'
 import useBao from './useBao'
 import useLockedEarnings from './useLockedEarnings'
 
@@ -24,9 +22,7 @@ const useSubValues = () => {
 
         const baoPriceFun = getBaoPrice(bao).then((response) => {
           setBaoPrices(response)
-          const currentRate = wethPrices
-            .dividedBy(1)
-            .dividedBy(baoPrices)
+          const currentRate = wethPrices.dividedBy(1).dividedBy(baoPrices)
           const userValue = currentRate.multipliedBy(
             locks.dividedBy(1000000000000000000),
           )

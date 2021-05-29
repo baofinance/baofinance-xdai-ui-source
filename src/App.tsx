@@ -14,7 +14,6 @@ import Farms from './views/Farms'
 import Home from './views/Home'
 import Staking from './views/Staking'
 
-
 const url = new URL(window.location.toString())
 if (url.searchParams.has('ref')) {
 	document.querySelectorAll('a[href]').forEach((el) => {

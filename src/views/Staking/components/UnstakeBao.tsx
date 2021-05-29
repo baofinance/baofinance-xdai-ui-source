@@ -40,7 +40,7 @@ const UnstaketBao: React.FC<HarvestProps> = ({ lpContract }) => {
 				<StyledCardContentInner>
 					<StyledCardHeader>
 						<CardIcon>
-						<img src={tbao} alt="" height="50" />
+							<img src={tbao} alt="" height="50" />
 						</CardIcon>
 						<Value value={getBalanceNumber(tBaoBalance)} />
 						<Label text="tBAO Available" />

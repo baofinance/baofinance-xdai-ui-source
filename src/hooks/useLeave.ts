@@ -11,11 +11,7 @@ const useLeave = () => {
 
   const handle = useCallback(
     async (amount: string) => {
-      const txHash = await leave(
-        gettBaoStakingContract(bao),
-        amount,
-        account,
-      )
+      const txHash = await leave(gettBaoStakingContract(bao), amount, account)
       console.log(txHash)
     },
     [account],

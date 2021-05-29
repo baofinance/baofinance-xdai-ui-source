@@ -25,7 +25,7 @@ const Farm: React.FC = () => {
 		name,
 		icon,
 		refUrl,
-		poolType
+		poolType,
 	} = useFarm(farmId) || {
 		pid: 0,
 		lpToken: '',

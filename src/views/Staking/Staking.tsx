@@ -74,14 +74,14 @@ const Staking: React.FC = () => {
 							</StyledCardsWrapper>
 							<Spacer size="lg" />
 							<StyledInfo>
-								ℹ️️ You will earn a portion of the swaps fees based on the amount
-								of tBao held relative the weight of the staking. tBao can be
-								minted by staking Bao. To redeem Bao staked plus swap fees
-							convert tBao back to Bao.{' '}
+								ℹ️️ You will earn a portion of the swaps fees based on the
+								amount of tBao held relative the weight of the staking. tBao can
+								be minted by staking Bao. To redeem Bao staked plus swap fees
+								convert tBao back to Bao.{' '}
 								{totalSupply
 									? `There are currently ${getBalanceNumber(
-										totalSupply,
-									)} tBao in existence.`
+											totalSupply,
+									  )} tBao in existence.`
 									: ''}
 							</StyledInfo>
 						</StyledFarm>
