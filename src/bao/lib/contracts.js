@@ -78,8 +78,12 @@ export class Contracts {
 	}
 
 	async callContractFunction(method, options) {
-		const { confirmations, confirmationType, autoGasMultiplier, ...txOptions } =
-			options
+		const {
+			confirmations,
+			confirmationType,
+			autoGasMultiplier,
+			...txOptions
+		} = options
 
 		if (!this.blockGasLimit) {
 			await this.setGasLimit()

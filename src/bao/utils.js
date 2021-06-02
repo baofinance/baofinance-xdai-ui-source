@@ -115,14 +115,19 @@ export const getTotalLPWethValue = async (
 	console.log(lpContract.address, 'lp')
 	console.log(tokenContract.address, 'token')
 	console.log(pid, 'pid')
-	const [tokenAmountWholeLP, balance, totalSupply, lpContractWeth, poolWeight] =
-		await Promise.all([
-			tokenContract.methods.balanceOf(lpContract.options.address).call(),
-			lpContract.methods.balanceOf(masterChefContract.options.address).call(),
-			lpContract.methods.totalSupply().call(),
-			wethContract.methods.balanceOf(lpContract.options.address).call(),
-			getPoolWeight(masterChefContract, pid),
-		])
+	const [
+		tokenAmountWholeLP,
+		balance,
+		totalSupply,
+		lpContractWeth,
+		poolWeight,
+	] = await Promise.all([
+		tokenContract.methods.balanceOf(lpContract.options.address).call(),
+		lpContract.methods.balanceOf(masterChefContract.options.address).call(),
+		lpContract.methods.totalSupply().call(),
+		wethContract.methods.balanceOf(lpContract.options.address).call(),
+		getPoolWeight(masterChefContract, pid),
+	])
 
 	// Return p1 * w1 * 2
 	const portionLp = new BigNumber(balance).div(new BigNumber(totalSupply))
