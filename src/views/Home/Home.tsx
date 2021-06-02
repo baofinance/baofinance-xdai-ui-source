@@ -19,7 +19,7 @@ const Home: React.FC = () => {
 			<StyledInfo>
 				❗️<b>Important</b>: Bao.cx distribution has hit its soft cap of 1T.
 				Minting of new Bao.cx has ended, meaning farming rewards are no longer
-				accumulating. We are currently evalutating all options. Please visit the
+				accumulating. We are currently evaluating all options. Please visit the
 				Bao Finance <a href="https://gov.bao.finance/">forums</a>,{' '}
 				<a href="https://snapshot.page/#/baovotes.eth">Snapshot </a>
 				or our <a href="https://discord.gg/BW3P62vJXT">Discord</a> for more
