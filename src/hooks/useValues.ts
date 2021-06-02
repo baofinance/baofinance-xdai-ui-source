@@ -34,9 +34,7 @@ const useValues = () => {
           setBaoPrices(response)
           console.log('baovalues')
           console.log(response)
-          const currentRate = wethPrices
-            .dividedBy(1)
-            .dividedBy(baoPrices)
+          const currentRate = wethPrices.dividedBy(1).dividedBy(baoPrices)
           const userValue = currentRate.multipliedBy(
             locks.dividedBy(1000000000000000000),
           )
@@ -47,7 +45,8 @@ const useValues = () => {
           const annualPrice = userValue.dividedBy(3).toFormat(2)
           console.log(annualPrice + ' annual')
           const wethText = userValue.toFormat(2)
-          const usrText1 = 'Your Locked BAOcx is worth approximately $' + wethText + ''
+          const usrText1 =
+            'Your Locked BAOcx is worth approximately $' + wethText + ''
           setUsrText(usrText1)
           console.log(usrText)
         })
