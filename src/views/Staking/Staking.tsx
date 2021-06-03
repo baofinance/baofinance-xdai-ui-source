@@ -76,8 +76,8 @@ const Staking: React.FC = () => {
 							<StyledInfo>
 								ℹ️️ You will earn a portion of the swaps fees based on the
 								amount of tBao held relative the weight of the staking. tBao can
-								be minted by staking Bao. To redeem Bao staked plus swap fees
-								convert tBao back to Bao.{' '}
+								be minted by staking Baocx. To redeem Baocx staked plus swap fees
+								convert tBao back to Baocx. Note that the ratio of Baocx:tBao is not 1:1 and will change over time. {' '}
 								{totalSupply
 									? `There are currently ${getBalanceNumber(
 											totalSupply,
