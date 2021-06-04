@@ -4,7 +4,7 @@ import { default as React, useEffect, useMemo, useState } from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
 import { provider } from 'web3-core'
-import baoicon from '../../assets/img/bao-icon.svg'
+import tbaoicon from '../../assets/img/tbao-icon.svg'
 import Button from '../../components/Button'
 import Page from '../../components/Page'
 import PageHeader from '../../components/PageHeader'
@@ -57,7 +57,7 @@ const Staking: React.FC = () => {
 					<>
 						<Route exact path={path}>
 							<PageHeader
-								icon={baoicon}
+								icon={tbaoicon}
 								title="Welcome to the Tea House"
 								subtitle="Stake BAOcx and earn with tBAO!!"
 							/>
@@ -76,8 +76,9 @@ const Staking: React.FC = () => {
 							<StyledInfo>
 								ℹ️️ You will earn a portion of the swaps fees based on the
 								amount of tBao held relative the weight of the staking. tBao can
-								be minted by staking Baocx. To redeem Baocx staked plus swap fees
-								convert tBao back to Baocx. Note that the ratio of Baocx:tBao is not 1:1 and will change over time. {' '}
+								be minted by staking Baocx. To redeem Baocx staked plus swap
+								fees convert tBao back to Baocx. Note that the ratio of
+								Baocx:tBao is not 1:1 and will change over time.{' '}
 								{totalSupply
 									? `There are currently ${getBalanceNumber(
 											totalSupply,

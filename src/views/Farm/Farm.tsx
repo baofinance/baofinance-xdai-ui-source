@@ -127,6 +127,7 @@ const StyledInfo = styled.h3`
 	margin: 0;
 	padding: 0;
 	text-align: center;
+	max-width: 900px;
 `
 
 export default Farm
