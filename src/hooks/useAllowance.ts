@@ -10,6 +10,8 @@ import useBao from './useBao'
 const useAllowance = (lpContract: Contract) => {
   const [allowance, setAllowance] = useState(new BigNumber(0))
   const { account }: { account: string; ethereum: provider } = useWallet()
+  const bao = useBao()
+  const masterChefContract = getMasterChefContract(bao)
 
   const fetchAllowance = useCallback(async () => {
     const allowance = await getAllowance(
@@ -18,15 +20,15 @@ const useAllowance = (lpContract: Contract) => {
       masterChefContract.options.address,
     )
     setAllowance(new BigNumber(allowance))
-  }, [account, lpContract])
+  }, [account, masterChefContract, lpContract])
 
   useEffect(() => {
-    if (account && lpContract) {
+    if (account && masterChefContract && lpContract) {
       fetchAllowance()
     }
     const refreshInterval = setInterval(fetchAllowance, 5000)
     return () => clearInterval(refreshInterval)
-  }, [account, lpContract])
+  }, [account, masterChefContract, lpContract])
 
   return allowance
 }
