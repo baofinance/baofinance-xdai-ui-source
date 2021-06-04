@@ -1,13 +1,11 @@
-import { useCallback, useEffect, useState } from 'react'
-
 import BigNumber from 'bignumber.js'
-import useBao from './useBao'
+import { useCallback, useEffect, useState } from 'react'
 import { useWallet } from 'use-wallet'
 import { provider } from 'web3-core'
 import { Contract } from 'web3-eth-contract'
-
-import { getAllowance } from '../utils/erc20'
 import { getMasterChefContract } from '../bao/utils'
+import { getAllowance } from '../utils/erc20'
+import useBao from './useBao'
 
 const useAllowance = (lpContract: Contract) => {
   const [allowance, setAllowance] = useState(new BigNumber(0))
@@ -18,8 +16,8 @@ const useAllowance = (lpContract: Contract) => {
   const fetchAllowance = useCallback(async () => {
     const allowance = await getAllowance(
       lpContract,
-      masterChefContract,
       account,
+      masterChefContract.options.address,
     )
     setAllowance(new BigNumber(allowance))
   }, [account, masterChefContract, lpContract])
@@ -28,7 +26,7 @@ const useAllowance = (lpContract: Contract) => {
     if (account && masterChefContract && lpContract) {
       fetchAllowance()
     }
-    const refreshInterval = setInterval(fetchAllowance, 10000)
+    const refreshInterval = setInterval(fetchAllowance, 5000)
     return () => clearInterval(refreshInterval)
   }, [account, masterChefContract, lpContract])
 

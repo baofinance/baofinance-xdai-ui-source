@@ -12,7 +12,6 @@ import useFarm from '../../hooks/useFarm'
 import useRedeem from '../../hooks/useRedeem'
 import { getContract } from '../../utils/erc20'
 import Harvest from './components/Harvest'
-import { PoolType } from '../../contexts/Farms/types'
 import Stake from './components/Stake'
 
 const Farm: React.FC = () => {
@@ -128,6 +127,7 @@ const StyledInfo = styled.h3`
 	margin: 0;
 	padding: 0;
 	text-align: center;
+	max-width: 900px;
 `
 
 export default Farm
